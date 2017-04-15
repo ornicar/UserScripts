@@ -3,7 +3,7 @@
 // @namespace     http://userstyles.org
 // @description	  Elegant Board&Pieces set
 // @author        GMG
-// @homepage      file:///D:/chess/DEVELOPMENT/_Cheat/_webcheats/_-_Javascript_Snippets/cheat.js
+// @homepage      https://github.com/gultekinmg/UserScripts/raw/TemperMonkey/LichessExtend.js
 // @match         https://*.lichess.org/@/*
 // @include       https://*.lichess.org/*
 // @icon          https://raw.githubusercontent.com/ornicar/lila/master/public/images/favicon-32-white.png
