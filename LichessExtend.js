@@ -8,7 +8,7 @@
 // @include       https://*.lichess.org/*
 // @icon          https://raw.githubusercontent.com/ornicar/lila/master/public/images/favicon-32-white.png
 // @run-at        document-start
-// @version       0.08
+// @version       0.09
 // ==/UserScript==
 (function() {
     var css = "";
