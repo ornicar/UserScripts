@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name          _lichess: _ GMG
 // @namespace     http://userstyles.org
-// @description	  Elegant Board&Pieces set 
+// @description	  Elegant Board&Pieces set
 // @author        GMG
-// @homepage      https://userstyles.org/styles/fuALL
+// @homepage      file:///D:/chess/DEVELOPMENT/_Cheat/_webcheats/_-_Javascript_Snippets/cheat.js
 // @match         https://*.lichess.org/@/*
 // @include       https://*.lichess.org/*
 // @icon          https://raw.githubusercontent.com/ornicar/lila/master/public/images/favicon-32-white.png
@@ -12,10 +12,13 @@
 // ==/UserScript==
 (function() {
     var css = "";
-// ========================================================================================================
-// Better Join and Withdraw button
-// ========================================================================================================
+    // ========================================================================================================
+    // Better Join and Withdraw button
+    // ========================================================================================================
     if (false || (new RegExp("^.*lichess\\.org/tournament.*$")).test(document.location.href))
+        css += [
+            "#site_description { position: absolute; top: 35px;}" // damned division found**************
+            ].join("\n");
         css += [
             "button.fbt.text {border-radius: 0 !important; border: 1px solid rgba(100, 100, 100, 250) !important; color: rgba(255, 255, 255, 255) !important;",
             "top: 0 !important; height: 100% !important; right: 0 !important; background-color: rgba(215, 113, 11, 0) !important; transition: 0s none !important;}",
@@ -26,9 +29,9 @@
             "button.fbt.text.disabled {color: rgba(116, 116, 116, 255) !important;}",
             "button.fbt.text.disabled:hover {background-color: rgba(215, 113, 11, 0)!important;}"
         ].join("\n");
-// ========================================================================================================
-// PIECES ****** base64
-// ========================================================================================================
+    // ========================================================================================================
+    // PIECES ****** base64
+    // ========================================================================================================
     css += [
         "piece.pawn.white {",	"background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAMAAAAPdrEwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAACQUExURQAAAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsLCxUVFRcXFx4eHh8fHygoKCsrKywsLDAwMDo6Ojs7O0NDQ0ZGRkhISFBQUFNTU1xcXGNjY2dnZ3Nzc39/f4GBgYyMjI+Pj5qamp6enqWlpa6urrCwsLq6usDAwMbGxszMzNTU1N3d3efn5/Hx8f///0aaliwAAAAKdFJOUwAAQk5gepGqxePpJ+pWAAAESklEQVRYw+1ZXVPr2g6TZCct5fz/38qmWdZ5WOkHUHaShjN35g55gZZGcbUsWzYk/qtL+IX+hf6F/r+Hzgfv+eEngyRsTA//ynXQj75cUAwTzapp3T3kmqgzpFBEa3a1atNPRa3IiMMgCq3O7yqx1XNcf0bOUcdDDBKqKob2pniflrFjuRUMY5xeDocMUaTIwVbVIiHL0Jl5ej0OQZIgSDBsoHZDa8iXl2PwgtwPucH2AvSiZCLzcIieSAQAiczQEHvVKOE45jVFLz9TkHZDRyQ/S4EKcS80Iwc9VFPuJYSIz8AuACK4u/IpLpDuv/j7pNiqxla68uCqVmU/W1Q/XlVVAgi4Ixso1He1dz200VxTQgZQqFZVtgveH3WbqhkqzV/AZReqYdodtd0ENBWAcpVdxlReJnwJelK9BcGGzohdrqpmuO0tqoQcsN0ZLrvTMn3sBs9UvpJAdmygXK1awVOd9zewifiDAAEYhVaewFrRe1fkdSP+pHomloEJrPOKBrZCjRMAzwWhATA8TW2/GtWFWDWzacAgQoZdz/uQ3rYGRAi9z/buxQawle1r9912jAoxmTmKQ2oqNJR7iTqjWShMVVXbo1aOiBxzHCXOwqxyoTy5XDW5Cq29b4+a4eCQQ4LuFBeqXB0fcDShVE8co6cA3uocMUjddth2s8vVykZjY2tPHWNKCZFjaP5UwYVW8EQUgHN5+vYY/5ohIikmmPQtyQ0DbC77VqK2Cr0ACO1AIIyC5yfQeJ8+W7PtaiwEdBqAcgENPZ0bfkLoEo6vI1HVqnpBPaOo+gFoKkSApABYDbK0DL1iAkvN/ol3x77Cl6+wOB5D5JwEBihihZtchpZiSALoTowgoMCym1wBTUoXNu761Q8QwmDo6y2OH4jaY1wl2wkmguHd/jo4U32VJwBBiP3WPe/50B3Zuddfy4dBdyC8vOAiI1qRH3y8ZxD3QUvxeZShoACV+6ApXfjwLbHnN3ZBixgfJzBFKJ6vfBER19GONz+tEsygOT1ngiMz83QaxBsPNgyCptnz29tNsDKHGP45HW5ahGd6CUDsRXDeB2zojRmDhuPxTuQghD7SAEJpaI1mntu0ievMGE7HMTn76q4RiE3FaIT74AQ69c0S7TEhOeTr6+shebesAEH3xwgmDAsgieHqY5ehM+P19DLwY1Xu9sy9cBsmDQJk0V65apEyD6Ou8vM8mvvOUZOab6YjtVoy9CHQyp6tend7VyOJ3ihFqBeSx5Uqv/OBpkvzqsk9ofv4XB8Ca9/vGPIvpkzGnCCehzvfEc+5VrVtNYR9peAPR2gYqELh/hlgbi9Puge4oX0dcr0JWncV+rrDueEWvby1+MtUYMLuKrmM0R3ct0rI7QNHFRAQcLm1+jh6ibzP6/N50Bug/fbnU0752y1Pf8b6qNvy/ofPcs0vreWhardCe81O/cvQs2oC+6Hr979Jv9D/M+h/AfGuQXtOOuUnAAAAAElFTkSuQmCC')!important;}",
         "piece.bishop.white {",	"background-image: url('data:image/png;base64,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')!important;}",
@@ -43,24 +46,24 @@
         "piece.king.black {",	"background-image: url('data:image/png;base64,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')!important;}",
         "piece.bishop.black {",	"background-image: url('data:image/png;base64,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')!important;}",
     ].join("\n");
-// ========================================================================================================
-// COORDINATES BORDERS - RICHWOOD Purple movement markers color to get rgbacolorcodes http://www.hexcolortool.com
-// ========================================================================================================
-	css += [
-    //coord
+    // ========================================================================================================
+    // COORDINATES BORDERS - RICHWOOD Purple movement markers color to get rgbacolorcodes http://www.hexcolortool.com
+    // ========================================================================================================
+    css += [
+        //coord
         ".cg-board-wrap coords.files {font-size: larger; font-weight: bold; bottom: -16px; text-transform: lowercase;}",
         ".cg-board-wrap coords.ranks {font-size: larger; font-weight: bold; left: -16px;}",
-	// selected piece
+        // selected piece
         " .cg-board square.selected {background-color: rgba(15,0,125,0.5) !important;}",
-	// destination dots, empty spaces
+        // destination dots, empty spaces
         " .cg-board square.move-dest {background: radial-gradient(rgba(15,0,125,0.3) 17%,#208530 0,rgba(0,0,0,0.3) 0,rgba(0,0,0,0) 0) !important;}",
-	// highlight square on hover
+        // highlight square on hover
         " .cg-board square.move-dest:hover {background: rgba(15,0,125,0.3) !important;}",
-	// available capture
+        // available capture
         " .cg-board square.oc.move-dest {background: radial-gradient(transparent 0%,transparent 60%,rgba(15,0,125,0.3) 80%) !important;}",
-	// Re-color last move
+        // Re-color last move
         " .cg-board square.last-move { background-color: rgba(200,200,0,0.3) !important;}",
-    // Coloring captured pieces.
+        // Coloring captured pieces.
         ".mono-piece.queen {filter: brightness(0) blur(1px); -webkit-filter: brightness(0) blur(1px);}",
         ".mono-piece.rook {filter: sepia(100%); -webkit-filter: sepia(100%);}",
         ".mono-piece.bishop {filter: sepia(60%) hue-rotate(150deg); -webkit-filter: sepia(60%) hue-rotate(150deg);}",
@@ -69,28 +72,40 @@
         ".mono-piece.king {filter: sepia(100%) contrast(2.5); -webkit-filter: sepia(100%) contrast(2.5);}",
         //"body.dark square[data-coord-x]::after, body.dark square[data-coord-y]::before {color: #0F0 !important;}",
         //"body.dark a [style] {text-shadow: -1px -1px #000, -1px 1px #000, 1px -1px #000, 1px 1px #000 !important}",
-    // BORDERS
+        // BORDERS https://userstyles.org/styles/140164
         ".lichess_board {border: 18px solid #66492B !important;} ",
         ".underboard {margin-top: 50px !important;} ",
         ".ranks coord{margin-left: 2px !important;} ",
         ".files coord{margin-top: 0px !important;} "
     ].join("\n");
-// ========================================================================================================
-// Theme
-// ========================================================================================================
-	css += [
+    // ========================================================================================================
+    // Theme
+    // ========================================================================================================
+    css += [
+        //".purple .is2d .cg-board, #top div.color_demo.purple { background-image:url(\"http://s020.radikal.ru/i702/1702/93/7fc55914c47b.png\")  !important;}",
         "body.dark {",
-/* text color */        "color: #0AA !important;",
-/* background-color */  "background-image: -webkit-linear-gradient(top,green 0%,black 100px);",
-    // "background-color: #DBC73C !important;",
-    // "background-image:url(\"http://s45.radikal.ru/i109/1702/cf/c5146e286ee0.png\")  !important;",
-/* font */              "font: 13px \'Open Sans\',\'Lucida Grande\',\'Lucida Sans Unicode\',Geneva,Verdana,Sans-Serif;",
+        /* text color #0AA*/
+        "color: #DBC73C !important;",
+        // background-color
+        "background-image: -webkit-linear-gradient(top,green 0%,black 100px);",
+        // "background-color: #DBC73C !important;",
+        // "background-image:url(\"http://s45.radikal.ru/i109/1702/cf/c5146e286ee0.png\")  !important;",
+        /* font */
+        "font: 13px \'Open Sans\',\'Lucida Grande\',\'Lucida Sans Unicode\',Geneva,Verdana,Sans-Serif;",
         "}",
-/* icon sides *****/  "body.dark .color-icon::before {color: #0BA}",
-/* MOVELIST **/       "body.dark move:not(.active) {color: #0AA}",
-/* FRENLIST **/       "body.dark #friend_box .title {color: yellow}",
-/* CHATTITLE */       "body.dark #chat span {color: #0BA}",
-/* observers */       "body.dark #site_header .watchers {background: dark !important}",
+        /* Premove Alert */
+        "#premove_alert, #dont_touch { top: 721px !important;  width: 720px !important;}",
+        /* icon sides *****/
+        "body.dark .color-icon::before {color: #0BA}",
+        /* MOVELIST **/
+        "body.dark move:not(.active) {color: #0AA}",
+        /* FRENLIST **/
+        "body.dark #friend_box .title {color: yellow}",
+        /* CHATTITLE */
+        "body.dark #chat span {color: #0BA}",
+        /* observers */
+        "body.dark #site_header .watchers {background: dark !important}",
+
         "body.dark span.extension {color: #0AA !important}",
         "body.dark .button, {color: #0BA !important; background-color: rgba(156, 147, 100, 100)!important; transition: 0s none !important;}",
         "body.dark a:not(.win):not(.loss):not(.draw):not([style]) {color: #0BA !important;}",
@@ -102,36 +117,36 @@
         "body.dark move.active {color: #FF0 !important}",
         "body.dark .side_box .clock * {color: #FF0 !important}",
         "body.dark .user_tv {color: #FF0 !important}",
-	    "body.dark .scheduled td.name a, body.dark #enterable_simuls td.name a {color: yellow !important;text-shadow: none !important}",
-	"#tournament_list table.slist .name {letter-spacing: 3px; font-size: 1.7em; display: block;color: yellow}",
-    "#tournament_list .scheduled .icon span { color: #d59120; opacity: 1.8;}",
-    "#tournament_list .icon span {font-size: 3em;opacity: 0.6;}",
-/* Coloring data icons. ******/
-	"[data-icon*='T']::before { color: rgb(255, 169,  53) !important;}",      /* bullet         */
-	"[data-icon*=')']::before { color: rgb(184,  51,  16) !important;}",      /* blitz          */
-	"[data-icon*='+']::before { color: rgb(116, 191,   0) !important;}",      /* classical      */
-	"[data-icon*=';']::before { color: rgb( 99, 138, 189) !important;}",      /* correspondence */
-	"[data-icon*=''']::before { color: rgb(186, 190, 161) !important;}",      /* fischerrandom  */
-	"[data-icon*='(']::before { color: rgb( 77,  51, 219) !important;}",      /* kingincenter   */
-	"[data-icon*='.']::before { color: rgb(  0, 132, 132) !important;}",      /* threecheck     */
-	"[data-icon*='@']::before { color: rgb(201, 100, 116) !important;}",      /* antichess      */
-	"[data-icon*='>']::before { color: rgb(159,  80, 178) !important;}",      /* atomic         */
-	"[data-icon*='_']::before { color: black !important;}",                   /* horde          */
-	"[data-icon*='*']::before { color: rgb(145, 206, 172) !important;}",      /* position       */
-	"[data-icon*='-']::before { color: rgb(255, 217, 238) !important;}",      /* training       */
-	"[data-icon*=']']::before { color: rgb(255, 233, 144) !important;}",      /* opening        */
-	".is-gold[data-icon]::before, #hooks_wrap .hooks_chart .plot.rated { text-shadow: 0 0 2px #d59120 !important;}",     /* shadow */
-	"[data-icon=]::before {  background: linear-gradient(0deg, rgb(41, 81, 109), rgb(72, 209, 136));  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;}",  /* mod */
-	"*:not(.trophy) > [data-icon=] { text-shadow: none !important;}",        /* override non-trophy mod icons: text-fill-color is annoying */
-	"[data-icon=] { color: rgba(56, 145, 122, 0.5) !important;}",            /* modtool: count */
-	"[data-icon=]::before {  background: radial-gradient(circle, rgb(162, 114, 140), rgb(131, 78, 107));  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;}", /* streamer */
-	".scheduled_tournaments > [data-icon=\\]::before, #enterable_tournaments [data-icon=\\]::before, #tournament_list [data-icon=\\]::before  { color: #8C556F !important;}",       /* marathon */
-	"#tournament_schedule .tournament.marathon > .icon::before { content: '\\'; color: #303E43 !important;}",
-	"#marathon_promo::before { color: #303E43 !important;}",
-	// "#daily_puzzle {width: 224px; position: absolute; top: 267px; left: 532px;}",
-	// "body.dark div.pgn {","font-family: \'ChessSansPiratf\', \'Liberation Mono\', \'Roboto\', Geneva, Verdana, sans-serif;","font-weight: bold}"
+        "body.dark .scheduled td.name a, body.dark #enterable_simuls td.name a {color: yellow !important;text-shadow: none !important}",
+        "#tournament_list table.slist .name {letter-spacing: 3px; font-size: 1.7em; display: block;color: yellow}",
+        "#tournament_list .scheduled .icon span { color: #d59120; opacity: 1.8;}",
+        "#tournament_list .icon span {font-size: 3em;opacity: 0.6;}",
+        /* Coloring data icons. ******/
+        "[data-icon*='T']::before { color: rgb(255, 169,  53) !important;}",      /* bullet         */
+        "[data-icon*=')']::before { color: rgb(184,  51,  16) !important;}",      /* blitz          */
+        "[data-icon*='+']::before { color: rgb(116, 191,   0) !important;}",      /* classical      */
+        "[data-icon*=';']::before { color: rgb( 99, 138, 189) !important;}",      /* correspondence */
+        "[data-icon*=''']::before { color: rgb(186, 190, 161) !important;}",      /* fischerrandom  */
+        "[data-icon*='(']::before { color: rgb( 77,  51, 219) !important;}",      /* kingincenter   */
+        "[data-icon*='.']::before { color: rgb(  0, 132, 132) !important;}",      /* threecheck     */
+        "[data-icon*='@']::before { color: rgb(201, 100, 116) !important;}",      /* antichess      */
+        "[data-icon*='>']::before { color: rgb(159,  80, 178) !important;}",      /* atomic         */
+        "[data-icon*='_']::before { color: black !important;}",                   /* horde          */
+        "[data-icon*='*']::before { color: rgb(145, 206, 172) !important;}",      /* position       */
+        "[data-icon*='-']::before { color: rgb(255, 217, 238) !important;}",      /* training       */
+        "[data-icon*=']']::before { color: rgb(255, 233, 144) !important;}",      /* opening        */
+        ".is-gold[data-icon]::before, #hooks_wrap .hooks_chart .plot.rated { text-shadow: 0 0 2px #d59120 !important;}",     /* shadow */
+        "[data-icon=]::before {  background: linear-gradient(0deg, rgb(41, 81, 109), rgb(72, 209, 136));  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;}",  /* mod */
+        "*:not(.trophy) > [data-icon=] { text-shadow: none !important;}",        /* override non-trophy mod icons: text-fill-color is annoying */
+        "[data-icon=] { color: rgba(56, 145, 122, 0.5) !important;}",            /* modtool: count */
+        "[data-icon=]::before {  background: radial-gradient(circle, rgb(162, 114, 140), rgb(131, 78, 107));  -webkit-background-clip: text;  -webkit-text-fill-color: transparent;}", /* streamer */
+        ".scheduled_tournaments > [data-icon=\\]::before, #enterable_tournaments [data-icon=\\]::before, #tournament_list [data-icon=\\]::before  { color: #8C556F !important;}",       /* marathon */
+        "#tournament_schedule .tournament.marathon > .icon::before { content: '\\'; color: #303E43 !important;}",
+        "#marathon_promo::before { color: #303E43 !important;}",
+        // "#daily_puzzle {width: 224px; position: absolute; top: 267px; left: 532px;}",
+        // "body.dark div.pgn {","font-family: \'ChessSansPiratf\', \'Liberation Mono\', \'Roboto\', Geneva, Verdana, sans-serif;","font-weight: bold}"
     ].join("\n");
-
+    
 if (typeof GM_addStyle != "undefined")         {	GM_addStyle(css);
 } else if (typeof PRO_addStyle != "undefined") {	PRO_addStyle(css);
 } else if (typeof addStyle != "undefined")     {	addStyle(css);
@@ -142,6 +157,11 @@ if (typeof GM_addStyle != "undefined")         {	GM_addStyle(css);
 	var heads = document.getElementsByTagName("head");
 	if (heads.length > 0) {	heads[0].appendChild(node); } else {document.documentElement.appendChild(node);} // no head yet, stick it wherever
 }
+   let mycontext = ' This Text was injected to the DIV.';
+        var _mytextnode=document.createTextNode(mycontext);
+        var _parentelement = document.getElementById("site_description");
+        _parentelement.innerHTML = '';
+        _parentelement.appendChild(_mytextnode);
 })();
 // ========================================================================================================
 // Lichess_User_Enhancer@https://github.com/ddugovic/UserScripts
@@ -161,14 +181,14 @@ else { var colors = shuffleArray(["#EF2F41", "#61BDF2", "#5179D6", "#66CC66", "b
 var n = 0;
 var colorContents = {};
 var colorize = function () { var e = document.getElementById('user_tag'); var keyContent = e.href;
-    if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];
-    e.style.color = colorContents[keyContent];
-    $('a[href^="/@/"]').each(function (i, e) {var keyContent = $(e).attr('href');                                       if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
-    $('a[href^="/simul/"]').each(function (i, e) {var keyContent = $(e).attr('href');                                   if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
-    $('span[data-href^="/@/"]').each(function (i, e) {var keyContent = $(e).attr('data-href');                          if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
-    $('#lichess > div.user_show > div.content_box_top > h1').each(function (i, e) {var keyContent = $(e).attr('href');  if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
-    $('#tv_channels > a').each(function (i, e) {var keyContent = $(e).attr('href');                                     if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
-};
+                            if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];
+                            e.style.color = colorContents[keyContent];
+                            $('a[href^="/@/"]').each(function (i, e) {var keyContent = $(e).attr('href');                                       if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
+                            $('a[href^="/simul/"]').each(function (i, e) {var keyContent = $(e).attr('href');                                   if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
+                            $('span[data-href^="/@/"]').each(function (i, e) {var keyContent = $(e).attr('data-href');                          if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
+                            $('#lichess > div.user_show > div.content_box_top > h1').each(function (i, e) {var keyContent = $(e).attr('href');  if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
+                            $('#tv_channels > a').each(function (i, e) {var keyContent = $(e).attr('href');                                     if (colorContents[keyContent] === undefined) colorContents[keyContent] = colors[n++ % colors.length];$(e).css('color', colorContents[keyContent]);});
+                           };
 //colorize();
 setInterval(function() {colorize();}, 100);
 var MutationObserver2 = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -181,59 +201,6 @@ if (chat.length) {observer.observe(list, {attributes: true,childList: true,chara
 // quick buttons
 // ========================================================================================================
 // berserk button Hit "b" on your keyboard
-Mousetrap.bind('b', function() { (function () {document.querySelector('button.berserk').click();})(); });
-
-// Hit "m" on your keyboard from profile.Jump to communication page
-Mousetrap.bind('m', function() {
-  (function (href) {
-    window.location.href = href.match(/^.+\./)[0] + 'lichess.org/mod/' + (href.substr(href.indexOf('@') + 2).replace(/[?/].+/, '')) + '/communication';
-  })(window.location.href);
-});
-// you may ignore below.
-// ======================================================================================================== 
-// injections sample.
-// ========================================================================================================
-const NBSP = '&nbsp';
-const lastCoordWrapper = document.createElement('div');
-lastCoordWrapper.style.display = 'inline-block';
-lastCoordWrapper.style.display = 'inline-block';
-lastCoordWrapper.style.width = '150px';
-lastCoordWrapper.style.marginLeft = '100px';
-lastCoordWrapper.style.verticalAlign = 'middle';
-const lastCoordWhatIs = document.createElement('p');
-lastCoordWhatIs.innerHTML = 'Last entered coordinate';
-lastCoordWrapper.appendChild(lastCoordWhatIs);
-const lastEnteredCoordinatesElem = document.createElement('h2');
-lastEnteredCoordinatesElem.innerHTML = NBSP;
-lastEnteredCoordinatesElem.style.fontSize = '3em';
-lastCoordWrapper.appendChild(lastEnteredCoordinatesElem);
-const moveInfoElem = document.createElement('small');
-moveInfoElem.innerHTML = NBSP;
-lastCoordWrapper.appendChild(moveInfoElem);
-//
-const initButton = document.createElement('button');
-initButton.style.display = 'inline-block';
-initButton.style.verticalAlign = 'middle';
-initButton.style.padding = '.7em 1.5em';
-initButton.style.fontSize = '1em';
-initButton.style.fontSize = '1rem';
-initButton.style.border = 'none';
-initButton.style.textAlign = 'center';
-initButton.style.fontWeight = '700';
-initButton.style.letterSpacing = '.01em';
-initButton.style.marginLeft = '90px';
-
-const inputElem = document.createElement('input');
-inputElem.placeholder = 'Type coordinates here';
-
-inputElem.style.display = 'block';
-inputElem.style.padding = '15px 28px';
-inputElem.style.width = '75%';
-inputElem.style.fontSize = '1.5rem';
-inputElem.style.margin = '5px auto 10px auto';
-inputElem.style.border = '0';
-inputElem.style.borderRadius = '11px';
-//
-initButton.innerHTML = 'Click to activate KeyboardChess';
-//initButton.addEventListener('click', init);
-// ========================================================================================================
+Mousetrap.bind('b', function() { (function () {document.querySelector('button.berserk').click();})(); }); //setTimeout(function() {document.querySelector('button.berserk').click();}, 100);
+// refresh ---------
+Mousetrap.bind('y', function() { (function fuck(){setTimeout(function(){location.reload();}, 3000);})(); });
